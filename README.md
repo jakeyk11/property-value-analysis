@@ -87,5 +87,41 @@ With this in mind, the following steps should be taken to use the tool.
 
 Note: Functionality for sales listings (_mode_=_buy_) is currently restricted. 
 
+## Data Definition
+
+**get_rightmove_rental_data.py** produces a csv output containing the following information
+
+<ins>Rental Listing Data</ins>
+
+* **Address:** Full address of property
+* **Area:** Area/Region that the property is located in
+* **Description:** Brief description of the property
+* **Monthly Rental:** Monthly cost to rent property (£)
+* **Property Type:** Type of property (E.g. Flat, Appartment, House, Duplex, etc.)
+* **Bedrooms:** Number of bedrooms in property
+* **Bathrooms:** Number of bathrooms in property
+* **Size:** Total size of property (sqft)
+* **Available Date:** Date from which the property is available to rent
+* **Deposit:** Value of required deposit (£)
+* **Min Tenancy:** Minumum required duration of tenancy (months)
+* **Let Type:** Terms of rental (E.g. Short term, Long term, etc)
+* **Furnish Type:** Status of furnishing (E.g. Furnished, Unfurnished, Part-furnished)
+* **Nearest Station:** Name of nearest train/tube station
+* **Nearest Station Dist:** Distance to nearest train/tube station (miles)
+* **Second Nearest Station:** Name of second nearest train/tube station
+* **Second Nearest Station Dist:** Distance to second nearest train/tube station (miles)
+* **Third Nearest Station:** Name of third nearest train/tube station
+* **Third Nearest Station Dist:** Distance to third nearest train/tube station (miles)
+* **Latitude:** Property co-ordinates - latitude (deg)
+* **Longitude:** Property co-ordinates - longitude (deg)
+* **Url**: Rightmove URL of property listing
+
+## Visualisation
+
+Output data is in a format that can be readily imported into Tableau. To demonstrate just how valuable this data is, I have developed a Tableau dashboard to analyse and investigate the London rental market. The dashboard not only identifies market trends, but provides users with a quick and efficient mechanism to drill-through rental listings and find their next property.
+
+The tool is available for use on [Tableau Public](https://public.tableau.com/app/profile/jake.kolliari/viz/RentingaPropertyinLondon/RentingaPropertyinLondon?publish=yes), and will be update intermittently. 
+
+
 
 
