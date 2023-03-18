@@ -120,8 +120,16 @@ Note: Functionality for sales listings (_mode_=_buy_) is currently restricted.
 
 Output data is in a format that can be readily imported into Tableau. To demonstrate just how valuable this data is, I have developed a Tableau dashboard to analyse and investigate the London rental market. The dashboard not only identifies market trends, but provides users with a quick and efficient mechanism to drill-through rental listings and find their next property.
 
-The tool is available for use on [Tableau Public](https://public.tableau.com/app/profile/jake.kolliari/viz/RentingaPropertyinLondon/RentingaPropertyinLondon?publish=yes), and will be update intermittently. 
+The tool is available for use on [Tableau Public](https://public.tableau.com/app/profile/jake.kolliari/viz/RentingaPropertyinLondon/RentingaPropertyinLondon?publish=yes), and will be updated intermittently. 
 
+<p align="center">
+  <img width="90%" src="./data_directory/dashboard_images/Tableau Dashboard - Renting a Property in London.png">
+</p>
 
+## Legal
 
+As per [Rightmove terms and conditions](https://www.rightmove.co.uk/this-site/terms-of-use.html) the use of webscrapers is not authorised by Rightmove, and therefore this package should no longer be used.
 
+## References
+
+[1] Low. B, "Scraping property listings from Rightmove." Medium. https://low-brandon96.medium.com/scraping-property-listings-from-rightmove-bd3cfb36516a (accessed 18th March 2023)
