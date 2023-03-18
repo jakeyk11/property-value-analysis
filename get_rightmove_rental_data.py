@@ -11,16 +11,20 @@
 import requests
 from requests.exceptions import HTTPError
 from bs4 import BeautifulSoup
-import re
 import pandas as pd
 import time
 from datetime import datetime
 import random
 import numpy as np
 
+# %% User inputs
+
+mode = "rent"           # Rent or buy
+file_name = "london"    # Naming to use in output csv file
+
 # %% Function to obtain data based on a dictionary of locations and location IDs
 
-def get_rightmove_data(location_dict, mode = "rent", retries = 10):
+def get_rightmove_data(location_dict, mode = "buy", retries = 10):
     
     # Initialise lists for storage of property information
     all_property_descriptions = []
@@ -62,6 +66,7 @@ def get_rightmove_data(location_dict, mode = "rent", retries = 10):
             headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36"}
             
             # Create page URL based on mode (sale/buy), page number and location
+            mode = mode if mode == "rent" else "sale"
             if page_index == 0:
                 rightmove_url = f"https://www.rightmove.co.uk/property-for-{mode}/find.html?locationIdentifier=REGION%{location_dict[location]}&sortType=6&propertyTypes=&includeSSTC=false&mustHave=&dontShow=&furnishTypes=&keywords="  
             elif page_index != 0:
@@ -322,10 +327,9 @@ with open("rightmove_location_ids.txt") as f:
 
 # %% Choose location_ids from dictionary and scrape data
 
-location_dict_scrape = {k: location_dict[k] for k in list(location_dict.keys())[10:]}
-data = get_rightmove_data(location_dict = location_dict_scrape, mode = "rent")
+location_dict_scrape = {k: location_dict[k] for k in list(location_dict.keys())}
+data = get_rightmove_data(location_dict = location_dict_scrape, mode = mode)
 
 # %% Process data for consumption and save to file
 
-processed_data = process_rightmove_data(data, file_prename = 'london')
-    
+processed_data = process_rightmove_data(data, file_prename = file_name)
