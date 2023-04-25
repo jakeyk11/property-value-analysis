@@ -24,7 +24,7 @@ file_name = "london"    # Naming to use in output csv file
 
 # %% Function to obtain data based on a dictionary of locations and location IDs
 
-def get_rightmove_data(location_dict, mode = "buy", retries = 10):
+def get_rightmove_data(location_dict, mode = "buy", pages = 41, retries = 10):
     
     # Initialise lists for storage of property information
     all_property_descriptions = []
@@ -60,7 +60,7 @@ def get_rightmove_data(location_dict, mode = "buy", retries = 10):
         print(f"Obtaining data for {location}")
         
         # Loop through each page (max is currently 42 pages)
-        for page_number in range(41):
+        for page_number in range(min(41,pages)):
             
             # Set-up user header
             headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36"}
@@ -328,7 +328,7 @@ with open("rightmove_location_ids.txt") as f:
 # %% Choose location_ids from dictionary and scrape data
 
 location_dict_scrape = {k: location_dict[k] for k in list(location_dict.keys())}
-data = get_rightmove_data(location_dict = location_dict_scrape, mode = mode)
+data = get_rightmove_data(location_dict = location_dict_scrape, mode = mode, pages=15)
 
 # %% Process data for consumption and save to file
 
